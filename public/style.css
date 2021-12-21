@@ -286,3 +286,7 @@ h2 a {
 .table tr th {
     text-align: center;
 }
+
+.container tr th h1 {
+    text-align: center;
+}
