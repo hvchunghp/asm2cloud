@@ -10,19 +10,20 @@ const DATABASE_NAME = 'GCH0901_DB'
 app.set('view engine', 'hbs')
 app.use(express.static("public"))
 app.use(express.urlencoded({ extended: true }))
+app.use(express.static(__dirname + '/public'));
 
 app.get('/product', (req, res) => {
     res.render('product')
 })
 
-app.get('/', async (req, res) => {
+app.get('/', async(req, res) => {
     const dbo = await getDatabase()
     const result = await dbo.collection("Products").find({}).toArray()
     res.render('index', { products: result })
 })
 
 
-app.post('/product', async (req, res) => {
+app.post('/product', async(req, res) => {
     const nameInput = req.body.txtName
     const priceInput = req.body.txtPrice
     const picURL = req.body.txtPicURL
@@ -40,7 +41,7 @@ app.post('/product', async (req, res) => {
     res.redirect('/product')
 })
 
-app.get('/delete', async (req, res) => {
+app.get('/delete', async(req, res) => {
     const id = req.query.id
     console.log("id need delete: " + id)
     const dbo = await getDatabase()
@@ -48,24 +49,24 @@ app.get('/delete', async (req, res) => {
     res.redirect('/')
 })
 
-app.get('/edit', async (req, res) => {
+app.get('/edit', async(req, res) => {
     const id = req.query.id
     const dbo = await getDatabase()
     const result = await dbo.collection("Products").findOne({ _id: ObjectId(id) })
     res.render('edit', { product: result })
 })
 
-app.post('/edit', async (req, res) => {
+app.post('/edit', async(req, res) => {
     const nameInput = req.body.txtName
     const priceInput = req.body.txtPrice
     const picURL = req.body.txtPicURL
-    // if(isNaN(priceInput)==true){
-    //     //khong phai la so, bao loi, ket thuc ham
-    //     const errorMessage = "Error: value must be number"
-    //     const product = {name:nameInput,price:priceInput,pic:picURL}
-    //     res.render('edit',{error:errorMessage,product:product})
-    //     return;
-    // }
+        // if(isNaN(priceInput)==true){
+        //     //khong phai la so, bao loi, ket thuc ham
+        //     const errorMessage = "Error: value must be number"
+        //     const product = {name:nameInput,price:priceInput,pic:picURL}
+        //     res.render('edit',{error:errorMessage,product:product})
+        //     return;
+        // }
     const id = req.body.txtId
     const myquery = { _id: ObjectId(id) };
     const newvalue = { $set: { name: nameInput, price: priceInput, pic: picURL } };
@@ -73,6 +74,7 @@ app.post('/edit', async (req, res) => {
     dbo.collection("Products").updateOne(myquery, newvalue)
     res.redirect('/')
 })
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT)
