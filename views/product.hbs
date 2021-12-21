@@ -22,7 +22,7 @@
     </label>
     <div id="sidebarMenu">
         <ul class="sidebarMenuInner">
-            <li>ATN<span>Toy Store</span></li>
+            <a href="/"><li>ATN<span>Toy Store</span></li></a>
             <li><a href="/">Home</a></li>
             <li><a href="/product">Insert products</a></li>
             <li><a href="https://github.com/hvchunghp/asm2cloud" target="_blank">About</a></li>
@@ -37,13 +37,13 @@
             <fieldset>
                 <legend style="text-align: center; color:blue">Add Product</legend><br>
                 <h5>Name:</h5>
-                <input type="text" name="txtName" id="txtName" style= "width: 400px;" value="{{oldP.name}}"><br>
+                <input type="text" name="txtName" id="txtName" style= "width: 400px; text-align:center;" value="{{oldP.name}}"><br>
                 <br>
                 <h5>Price:</h5>
-                <input type="text" name="txtPrice" id="txtPrice" style="width: 400px;" value="{{oldP.price}}"><br>
+                <input type="text" name="txtPrice" id="txtPrice" style="width: 400px; text-align:center;" value="{{oldP.price}}"><br>
                 <br>
                 <h5>PictureURL:</h5>
-                <input type="text" name="txtPicURL" id="txtPicURL" style="width: 400px;" value="{{oldP.pic}}"><br>
+                <input type="text" name="txtPicURL" id="txtPicURL" style="width: 400px; text-align:center;" value="{{oldP.pic}}"><br>
                 <br><br>
                 <input type="submit" class="btn btn-primary" value="Insert">
                 <br><br><span style="color: red;">{{error}}</span>
