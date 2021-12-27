@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert product</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="mystyle.css" />
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="header"></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <a href="/"><li>ATN<span>Toy Store</span></li></a>
+            <li><a href="/">Home</a></li>
+            <li><a href="/product">Insert products</a></li>
+            <li><a href="https://github.com/hvchunghp/asm2cloud" target="_blank">About</a></li>
+            <li><a href="https://github.com/hvchunghp/asm2cloud" target="_blank">Contact</a></li>
+        </ul>
+    </div>
+    <div>
+        <br><br><br><br>
+        <center>
+        <form class="border" style= "width: 500px; margin-top: 30px;" action="/product" method="post" >
+        <br>
+            <fieldset>
+                <legend style="text-align: center; color:blue">Add Product</legend><br>
+                <h5>Name:</h5>
+                <input type="text" name="txtName" id="txtName" placeholder="e.g: SHF Kamen Rider OOO" style= "width: 400px; text-align:center;" value="{{oldP.name}}"><br>
+                <br>
+                <h5>Price:</h5>
+                <input type="text" name="txtPrice" id="txtPrice" placeholder="e.g: 1000" style="width: 400px; text-align:center;" value="{{oldP.price}}"><br>
+                <br>
+                <h5>PictureURL:</h5>
+                <input type="text" name="txtPicURL" id="txtPicURL" style="width: 400px; text-align:center;" value="{{oldP.pic}}"><br>
+                <br><br>
+                <input type="submit" class="btn btn-primary" value="Insert">
+                <br><br><span style="color: red;">{{error}}</span>
+            </fieldset>
+        </form>
+        </center>
+    </div>
+</body>
+
+</html>

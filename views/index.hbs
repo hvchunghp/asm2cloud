@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="mystyle.css" />
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="header"></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <a href="/"><li>ATN<span>Toy Store</span></li></a>
+            <li><a href="/">Home</a></li>
+            <li><a href="/product">Insert products</a></li>
+            <li><a href="https://github.com/hvchunghp/asm2cloud" target="_blank">About</a></li>
+            <li><a href="https://github.com/hvchunghp/asm2cloud" target="_blank">Contact</a></li>
+        </ul>
+    </div>
+    <br><br><br>
+    <h1></span>ATN Store</pan>
+    </h1>
+    </h1>
+    <h2>Created by <a href="https://github.com/hvchunghp/asm2cloud/" target="_blank">Chunghvgch190572</a></h2>
+
+    <table class="container">
+        <thead>
+            <tr>
+                <th>
+                    <h1>ID</h1>
+                </th>
+                <th>
+                    <h1>Name</h1>
+                </th>
+                <th>
+                    <h1 style="width: 120px;">Price</h1>
+                </th>
+                <th>
+                    <h1>Picture</h1>
+                </th>
+                <th style="width: 220px;" colspan="2"><h1>Action</h1></th>
+
+            </tr>
+            {{#each products}}
+        </thead>
+        <tbody>
+            <tr style="text-align:center;">
+                <td><strong>{{_id}}</strong></td>
+                <td><strong>{{name}}</strong></td>
+                <td><strong>{{price}}</strong></td>
+                <td><img src="{{pic}}" width="200" height="200"></td>
+                <td><a href="/edit?id={{_id}}"><input type="submit" class="btn btn-primary" name="submit" id="submit"
+                            value="Edit"></a></td>
+                <td><a onclick="return confirm('Are you sure to delete this item?')" href="/delete?id={{_id}}"><input
+                            type="submit" class="btn btn-primary" name="submit" id="submit" value="Delete"></a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+
+</html>

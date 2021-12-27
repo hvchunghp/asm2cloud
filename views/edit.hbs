@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit product</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="mystyle.css" />
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="header"></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <a href="/"><li>ATN<span>Toy Store</span></li></a>
+            <li><a href="/">Home</a></li>
+            <li><a href="/product">Insert products</a></li>
+            <li><a href="https://github.com/hvchunghp/asm2cloud" target="_blank">About</a></li>
+            <li><a href="https://github.com/hvchunghp/asm2cloud" target="_blank">Contact</a></li>
+        </ul>
+    </div>
+    <br><br><br><br>
+    <h1 style="text-align: center; color:red;">Update Product</h1>
+
+
+    <div class="container-fluid">
+        <form action="/edit" enctype="multipart/form-data" method="POST">
+            <div class="form-group">
+                <label for="name">Name of Toy: </label>
+                <input type="text" name="name" id="name" class="form-control" value="{{product.name}}">
+            </div>
+            <div class="form-group">
+                <label for="price">Price: </label>
+                <input type="number" name="price" id="price" class="form-control" value="{{product.price}}">
+            </div>
+            <div class="form-group">
+                <label for="avatar">URL Picture: </label>
+                <input type="text" name="price" id="price" class="form-control" value="{{product.pic}}">
+                <br>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Update">
+                </div>
+            </div>
+
+
+            <h1 style="text-align: center; color: red;">Toy's Information</h1><br>
+            <div>
+                <table class="table" border="1px">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Picture</th>
+                    </tr>
+                    <tr>
+                        <td><strong>{{product._id}}</strong></td>
+                        <td><strong>{{product.name}}</strong></td>
+                        <td><strong>{{product.price}}</strong></td>
+                        <td><img src="{{product.pic}}" width="200" height="200"></td>
+                    </tr>
+                </table>
+            </div>
+
+</body>
+
+</html>
